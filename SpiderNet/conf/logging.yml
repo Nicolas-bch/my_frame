@@ -1,0 +1,36 @@
+version: 1
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(filename)s - [function:%(funcName)s] - [line:%(lineno)d] - %(levelname)s: %(message)s'
+    datefmt: '%F %T'
+
+handlers:
+
+  console:
+    class: logging.StreamHandler
+    # class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+
+  downloader_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: simple
+    filename: ./log/downloader.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20 #most 20 extensions
+    encoding: utf8
+
+loggers:
+
+  downloader:
+    level: INFO
+    handlers: [downloader_file_handler]
+    propagate: yes
+
+
+root:
+  level: INFO
+  handlers: [console]
