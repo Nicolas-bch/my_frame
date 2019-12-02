@@ -31,7 +31,7 @@ if ENV == 1:
     MONGOUSER, MONGOPASSWORD, MONGODATABASE = "test", "123456", "test"
 
     # mysql
-    MYSQL_TEST = DBConf(host="localhost", db="lvwan", user="root", passwd="")
+    MYSQL_TEST = DBConf(host="localhost", db="mywan", user="root", passwd="")
 
 
 
